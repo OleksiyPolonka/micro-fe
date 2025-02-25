@@ -13,7 +13,6 @@ const devConfig = {
     filename: '[name].[contenthash].js',
     publicPath: '/container/latest/'
   },
-
   plugins: [
     new ModularFederation({
       name: 'container',

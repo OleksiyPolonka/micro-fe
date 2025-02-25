@@ -12,6 +12,7 @@ const devConfig = {
   output: {
     filename: '[name].[contenthash].js'
   },
+
   plugins: [
     new ModularFederation({
       name: 'container',

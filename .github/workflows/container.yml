@@ -27,16 +27,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           AWS_DEFAULT_REGION: us-east-2
 
-      - run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} \
-            --cli-input-json '{
-              "Paths": {
-                "Quantity": 1,
-                "Items": ["/container/latest/index.html"]
-              },
-              "CallerReference": "cli-invalidation-20250225"
-            }'
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --invalidation-batch file://invalidation.json
+
 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}

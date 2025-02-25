@@ -1,0 +1,7 @@
+{
+  "Paths": {
+    "Quantity": 1,
+    "Items": ["/container/latest/index.html"]
+  },
+  "CallerReference": "cli-invalidation-20250225"
+}

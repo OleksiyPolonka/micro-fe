@@ -14,7 +14,8 @@ export default () => {
         if (history.location.pathname !== nextPathName) {
           history.push(nextPathName);
         }
-      }
+      },
+      initialPath: history.location.pathname
     });
 
     history.listen(onParentNavigate)

@@ -4,15 +4,17 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 
 import App from './App'
 
-const mount = (el, { onNavigate = () => {} }) => {
+const mount = (el, { onNavigate = () => {}, initialPath }) => {
   let history;
   if (process.env.NODE_ENV === 'development') {
     history = createBrowserHistory();
   
     history.listen(onNavigate);
   } else {
-    history = createMemoryHistory();
-  
+    history = createMemoryHistory({
+      initialPath: [initialPath]
+    });
+
     history.listen(onNavigate);
   }
 
